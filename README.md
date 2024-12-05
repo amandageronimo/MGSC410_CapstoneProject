@@ -27,24 +27,7 @@ This project implements a machine learning system to predict flight delays using
   seaborn
   matplotlib
   ```
-
-## Installation
-1. Clone the repository or download the source files
-2. Install required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-## Project Structure
-```
-flight-delay-prediction/
-│
-├── train_model.py        # Model training script
-├── app.py               # Streamlit web application
-├── requirements.txt     # Project dependencies
-└── flight_delay_model.pkl # Trained model and encoders (generated after training)
-```
-
+  
 ## Usage
 
 ### Training the Model
@@ -64,9 +47,9 @@ flight-delay-prediction/
 1. Ensure the trained model file (`flight_delay_model.pkl`) is in the same directory
 2. Start the Streamlit app:
    ```bash
-   streamlit run app.py
+   python -m streamlit run app.py
    ```
-3. Access the application through your web browser (typically http://localhost:8501)
+3. Access the application through your web browser
 
 ## Model Features
 The prediction model uses the following features:
