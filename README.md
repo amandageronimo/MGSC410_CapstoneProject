@@ -1,5 +1,5 @@
 # MGSC410_CapstoneProject
-# Flight Delay Prediction System
+### Flight Delay Prediction System
 
 ## Overview
 This project implements a machine learning system to predict flight delays using historical flight data. The system consists of two main components:
@@ -117,20 +117,6 @@ The training data should include the following columns:
   - Unseen categorical values
   - Runtime exceptions
 
-## Contributing
-To contribute to this project:
-1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
-
-## License
-[Your chosen license]
-
-## Contact
-[Your contact information]
-
 ## Acknowledgments
-- Data source: [Your data source]
-- Contributors: [List of contributors]
+- Data source: https://www.kaggle.com/datasets/robikscube/flight-delay-dataset-20182022
+- Contributors: Amanda Geronimo & Alice Utsunomiya
