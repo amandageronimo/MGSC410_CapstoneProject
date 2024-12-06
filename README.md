@@ -23,7 +23,7 @@ The prediction model is a Random Forest Classifier trained on US flight data wit
 ├── flight_delay_model.pkl    # Trained model and encoders
 ├── Airlines.csv              # Airline code to name mappings
 ├── airport_state.csv         # Airport to state mappings
-├── flight_delays.py         # Model training script
+├── flight_delays.py          # Model training script
 └── app.py                    # Streamlit web application
 ```
 
