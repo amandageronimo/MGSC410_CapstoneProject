@@ -1,104 +1,110 @@
-# MGSC410_CapstoneProject
-### Flight Delay Prediction System
+# Flight Delay Prediction Tool
 
 ## Overview
-This project implements a machine learning system to predict flight delays using historical flight data. The system consists of two main components:
-1. A training script that processes historical flight data and trains a Random Forest model
-2. A Streamlit web application that provides an interactive interface for making flight delay predictions
+This project consists of a machine learning model and web application that predicts flight delays for US domestic flights. The tool uses historical flight data to provide probability estimates for flight delays, along with risk assessments and recommendations for travelers.
 
 ## Features
-- Processes large datasets in chunks to handle memory efficiently
-- Predicts the likelihood of flight delays, cancellations, and diversions
-- Interactive web interface for real-time predictions
-- Comprehensive feature engineering including:
-  - Seasonal patterns
-  - Time-based features
-  - Geographic information
-  - Carrier-specific patterns
+- Real-time flight delay predictions
+- Interactive visualizations of historical delay patterns
+- Model performance insights and metrics
+- Comprehensive help documentation
+- User-friendly web interface
 
-## Prerequisites
-- Python 3.8 or higher
-- Required Python packages:
-  ```
-  pandas
-  numpy
-  scikit-learn
-  streamlit
-  seaborn
-  matplotlib
-  ```
-  
-## Usage
+## Model Details
+The prediction model is a Random Forest Classifier trained on US flight data with the following characteristics:
+- Balanced training using SMOTE (Synthetic Minority Over-sampling Technique)
+- Handles multiple delay types (15+ minute delays, cancellations, diversions)
+- Includes seasonal and time-based patterns
+- Accounts for route-specific factors
 
-### Training the Model
-1. Prepare your flight data CSV file
-2. Update the file path in `train_model.py`:
-   ```python
-   file_path = "path/to/your/flight_data.csv"
-   ```
-3. Run the training script:
-   ```bash
-   python train_model.py
-   ```
-   - Use `sample_frac` parameter to train on a subset of data
-   - Adjust `batch_size` based on your system's memory
+## Project Structure
+```
+├── flight_delay_model.pkl    # Trained model and encoders
+├── Airlines.csv              # Airline code to name mappings
+├── airport_state.csv         # Airport to state mappings
+├── model_training.py         # Model training script
+└── app.py                    # Streamlit web application
+```
 
-### Running the Web Application
-1. Ensure the trained model file (`flight_delay_model.pkl`) is in the same directory
-2. Start the Streamlit app:
-   ```bash
-   python -m streamlit run app.py
-   ```
-3. Access the application through your web browser
+## Installation & Setup
+1. Install required packages:
+```bash
+pip install streamlit pandas numpy scikit-learn plotly
+```
 
-## Model Features
-The prediction model uses the following features:
-- Day of week
-- Month
-- Time of day
-- Flight distance
-- Airlines
-- Origin and destination airports
-- State information
-- Seasonal patterns
+2. Place required data files in the project directory:
+- flight_delay_model.pkl
+- Airlines.csv
+- airport_state.csv
 
-## Web Interface Features
-- Input form for flight details
-- Real-time delay probability prediction
-- Risk level assessment
-- Recommendations based on prediction
-- Visual indicators for prediction confidence
-
-## Model Performance
-The Random Forest model is trained with the following configurations:
-- 100 estimators
-- Maximum depth of 20
-- Balanced class weights
-- Stratified sampling
+3. Run the Streamlit app:
+```bash
+python -m streamlit run app.py
+```
 
 ## Data Requirements
-The training data should include the following columns:
-- FlightDate
-- DayOfWeek
-- Month
-- CRSDepTime
-- DepTimeBlk
-- Distance
-- DistanceGroup
-- Marketing_Airline_Network
-- Flight_Number_Marketing_Airline
-- Origin
-- Dest
-- OriginState
-- DestState
-- Target variables (ArrDel15, Cancelled, Diverted)
+The model requires the following input features:
+- Flight date and time
+- Origin and destination airports
+- Airline information
+- Flight number
+- Distance information
 
-## Error Handling
-- The application includes comprehensive error handling for:
-  - Missing model files
-  - Invalid input data
-  - Unseen categorical values
-  - Runtime exceptions
+## Model Performance
+- On-time Flight Prediction:
+  - Precision: 0.840
+  - Recall: 0.750
+  - F1-Score: 0.790
+
+- Delay Prediction:
+  - Precision: 0.410
+  - Recall: 0.540
+  - F1-Score: 0.470
+
+## Training Process
+The model training script (`model_training.py`) includes:
+- Batch processing for large datasets
+- SMOTE for handling class imbalance
+- Feature engineering
+- Label encoding for categorical variables
+- Model evaluation and performance metrics
+- Automated saving of model artifacts
+
+## Web Application Features
+1. Prediction Page
+   - Input flight details
+   - Get delay probability
+   - Risk level assessment
+   - Recommendations
+
+2. Model Insights
+   - Performance metrics
+   - Feature importance visualization
+   - Classification report
+
+3. Historical Analysis
+   - Monthly delay patterns
+   - Time-of-day trends
+   - Interactive visualizations
+
+## Usage Tips
+1. For best results, provide accurate flight information
+2. Consider seasonal patterns when planning
+3. Use historical analysis to identify optimal travel times
+4. Pay attention to risk levels and recommendations
+
+## Technical Notes
+- The model uses label encoding for categorical variables
+- Handles missing values through imputation
+- Includes error handling for edge cases
+- Provides confidence scores with predictions
+
+## Future Improvements
+- Weather data integration
+- Real-time flight status updates
+- Airport-specific delay statistics
+- Enhanced visualization options
+- User account features
 
 ## Acknowledgments
 - Data source: https://www.kaggle.com/datasets/robikscube/flight-delay-dataset-20182022
