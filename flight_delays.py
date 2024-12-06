@@ -13,6 +13,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 import pickle
 from datetime import datetime
+from imblearn.over_sampling import SMOTE
 
 # Define columns to use
 use_cols = [
@@ -130,7 +131,12 @@ def main(file_path, batch_size=100000, sample_frac=None):
     # Free memory
     del X, y, X_batches, y_batches
     
-    # Create and train the model
+    # Apply SMOTE with balanced approach
+    print("Applying balanced SMOTE approach...")
+    smote = SMOTE(sampling_strategy=0.5, random_state=42)
+    X_train, y_train = smote.fit_resample(X_train, y_train)
+    
+    # Create and train the model with balanced settings
     print("Training model...")
     rf_model = RandomForestClassifier(
         n_estimators=100,
@@ -140,7 +146,7 @@ def main(file_path, batch_size=100000, sample_frac=None):
         max_features='sqrt',
         n_jobs=-1,
         random_state=42,
-        class_weight='balanced'
+        class_weight={0: 1, 1: 2}  # Adjusted class weights
     )
     
     rf_model.fit(X_train, y_train)
@@ -177,7 +183,7 @@ def main(file_path, batch_size=100000, sample_frac=None):
     plt.tight_layout()
     plt.show()
     
-    # Save model and related data in a single pickle file
+    # Save model and related data
     print("Saving model and encoders...")
     model_data = {
         'model': rf_model,
@@ -205,11 +211,11 @@ if __name__ == "__main__":
     file_path = "C:\\Users\\amand\\MGSC410\\Combined_Flights_2022.csv"
     
     # For testing with smaller sample (uncomment one of these options):
-    model, encoders, importance = main(file_path, batch_size=100000, sample_frac=0.1)  # 10% of data
-    # model, encoders, importance = main(file_path, batch_size=100000, sample_frac=0.5)  # 50% of data
+    # model, encoders, importance = main(file_path, batch_size=100000, sample_frac=0.1)  # 10% of data
+    model, encoders, importance = main(file_path, batch_size=100000, sample_frac=0.5)  # 50% of data
     
     # For full training:
-    # model, encoders, importance = main(file_path, batch_size=100000)
+   # model, encoders, importance = main(file_path, batch_size=100000)
     
     # Verify saved files
     import os
