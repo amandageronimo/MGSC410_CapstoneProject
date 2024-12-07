@@ -53,14 +53,14 @@ The model requires the following input features:
 
 ## Model Performance
 - On-time Flight Prediction:
-  - Precision: 0.840
-  - Recall: 0.750
+  - Precision: 0.860
+  - Recall: 0.730
   - F1-Score: 0.790
 
 - Delay Prediction:
-  - Precision: 0.410
-  - Recall: 0.540
-  - F1-Score: 0.470
+  - Precision: 0.420
+  - Recall: 0.620
+  - F1-Score: 0.500
 
 ## Training Process
 The model training script (`model_training.py`) includes:
