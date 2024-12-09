@@ -1,5 +1,5 @@
 # MGSC 410 Capstone Final Project
-### Flight Delay Prediction Tool
+### Flight Status Prediction Tool
 
 ## Overview
 This project consists of a machine learning model and web application that predicts flight delays for US domestic flights. The tool uses historical flight data to provide probability estimates for flight delays, along with risk assessments and recommendations for travelers.
