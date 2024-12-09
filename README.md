@@ -36,6 +36,7 @@ pip install streamlit pandas numpy scikit-learn plotly
 
 2. Place required data files in the project directory:
 - flight_delay_model.pkl
+- Combined_Flights_2022.csv
 - Airlines.csv
 - airport_state.csv
 
