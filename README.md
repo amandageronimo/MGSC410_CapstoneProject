@@ -46,8 +46,6 @@ python -m streamlit run app.py
 ```
 
 ## Data Requirements
-Download dataset:  https://drive.google.com/file/d/1DuDCvu3aS5MIxwCG3IQDerBGCP5UAa6E/view?usp=sharing 
-
 The model requires the following input features:
 - Flight date and time
 - Origin and destination airports
