@@ -21,6 +21,7 @@ The prediction model is a Random Forest Classifier trained on US flight data wit
 ## Project Structure
 ```
 ├── flight_delay_model.pkl    # Trained model and encoders
+├── Combined_Flights_2022.csv # Flight status data
 ├── Airlines.csv              # Airline code to name mappings
 ├── airport_state.csv         # Airport to state mappings
 ├── flight_delays.py          # Model training script
