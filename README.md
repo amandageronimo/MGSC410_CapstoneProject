@@ -88,24 +88,11 @@ The model training script (`model_training.py`) includes:
    - Time-of-day trends
    - Interactive visualizations
 
-## Usage Tips
-1. For best results, provide accurate flight information
-2. Consider seasonal patterns when planning
-3. Use historical analysis to identify optimal travel times
-4. Pay attention to risk levels and recommendations
-
 ## Technical Notes
 - The model uses label encoding for categorical variables
 - Handles missing values through imputation
 - Includes error handling for edge cases
 - Provides confidence scores with predictions
-
-## Future Improvements
-- Weather data integration
-- Real-time flight status updates
-- Airport-specific delay statistics
-- Enhanced visualization options
-- User account features
 
 ## Acknowledgments
 - Data source: https://www.kaggle.com/datasets/robikscube/flight-delay-dataset-20182022
