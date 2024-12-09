@@ -44,6 +44,8 @@ python -m streamlit run app.py
 ```
 
 ## Data Requirements
+Download dataset:  https://drive.google.com/file/d/1DuDCvu3aS5MIxwCG3IQDerBGCP5UAa6E/view?usp=sharing 
+
 The model requires the following input features:
 - Flight date and time
 - Origin and destination airports
@@ -69,7 +71,7 @@ The model training script (`model_training.py`) includes:
 - Feature engineering
 - Label encoding for categorical variables
 - Model evaluation and performance metrics
-- Automated saving of model artifacts
+- Automated saving of model pkl file
 
 ## Web Application Features
 1. Prediction Page
